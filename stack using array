@@ -1,0 +1,89 @@
+#include <stdio.h>
+int A[5];
+int top=-1;
+int max=5;
+void push(int value)
+{
+int item= value;
+if(top==max-1)
+{
+    printf("overflow, exiting");
+}
+else
+{
+    A[top]=item;
+    top++;
+}
+}
+
+void pop()
+{
+    int item;
+    if (top==-1)
+    {
+        printf("underflow, exiting");
+        
+    }
+    else
+    {
+        item=A[top];
+        top--;
+    }
+    
+
+}
+
+void traverse()
+{
+int i;
+if (top==-1)
+{
+    printf("stack is empty");
+}
+else
+{
+    printf("stack contents:\n");
+    for ( i = top; i >=0; i--)
+    {
+        printf("%d->",A[i]);
+    }
+    printf("Null\n");
+
+}
+
+
+}
+
+int main()
+{
+    int ch;
+    int value;
+    do
+    {
+      
+    printf("Enter your choice:\n");
+    printf(" 1. for push\n 2. for pop\n 3. for traverse\n other to exit\n");
+    scanf("%d",&ch);
+    switch (ch)
+    {
+    case 1:
+        printf("Enter the data you want to enter:\n");
+        scanf("%d",&value);
+        push(value);
+    break;
+    case 2:
+        pop();
+        break;
+    case 3:
+        traverse();
+        break;
+    
+    default:
+        printf("wrong choice, try again");
+        break;
+    }
+    
+    } while (ch!=0);
+    return 0;
+    
+}
